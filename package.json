@@ -8,5 +8,14 @@
   "devDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "spring",
+    "physics",
+    "motion",
+    "animation",
+    "transition"
+  ]
 }
