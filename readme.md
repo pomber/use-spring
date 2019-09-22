@@ -30,11 +30,15 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 ```
 
-[Demo](https://codesandbox.io/s/use-spring-demo-fbbvn)
+## Demos
+
+- [Basic Demo](https://codesandbox.io/s/use-spring-demo-fbbvn)
+- [Emoji Heads](https://codesandbox.io/s/use-spring-demo-irfq5?hidenavigation=1)
 
 ## API
 
 ```js
+// default values:
 const x = useSpring(target, {
   stiffness: 170,
   damping: 26,
