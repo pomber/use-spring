@@ -48,6 +48,8 @@ const x = useSpring(target, {
 });
 ```
 
+You can try different values of `stiffness`, `damping` or `mass` on the [Spring Editor](https://springs.pomb.us/).
+
 ## MIT License
 
 Copyright (c) 2019 Rodrigo Pombo
