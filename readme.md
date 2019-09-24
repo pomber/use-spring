@@ -50,6 +50,12 @@ const x = useSpring(target, {
 
 You can try different values of `stiffness`, `damping` or `mass` on the [Spring Editor](https://springs.pomb.us/).
 
+## Related
+
+- [react-spring](https://github.com/react-spring/react-spring)
+- [react-motion](https://github.com/chenglou/react-motion)
+- [framer-motion](https://www.framer.com/api/motion/)
+
 ## MIT License
 
 Copyright (c) 2019 Rodrigo Pombo
