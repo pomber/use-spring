@@ -20,7 +20,9 @@ export function useSpring(
   const t = performance.now();
   const { x0, v0, t0 } = state;
   const { k, c, m, X } = oldConfig;
-  const { x, v } = spring({ x0, v0, t0, t, k, c, m, X });
+  const { x, v } = newConfig.teleport
+    ? { x: X, v: 0 }
+    : spring({ x0, v0, t0, t, k, c, m, X });
   const moving = isMoving(x, v, t, newConfig);
 
   React.useLayoutEffect(() => {
