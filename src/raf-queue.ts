@@ -1,4 +1,5 @@
 import { unstable_batchedUpdates } from "react-dom";
+import { currentTime } from "./time";
 
 type FrameId = number;
 type TaskIndex = number;
@@ -23,7 +24,7 @@ export function unqueueAnimationFrame([frameId, index]: TaskId) {
 }
 
 function runQueue() {
-  const now = performance.now();
+  const now = currentTime();
   const queue = nextFrameQueue;
   nextFrameQueue = [];
   unstable_batchedUpdates(() => queue.forEach(task => task && task(now)));

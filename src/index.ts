@@ -7,6 +7,7 @@ import {
 } from "./config";
 import { spring } from "./spring";
 import { queueAnimationFrame, unqueueAnimationFrame } from "./raf-queue";
+import { currentTime } from "./time";
 
 export function useSpring(
   target: number,
@@ -17,7 +18,7 @@ export function useSpring(
   const { state, config: oldConfig } = useSpringInstance(target, config);
 
   // TODO all springs should use the same t in the same frame
-  const t = performance.now();
+  const t = currentTime();
   const { x0, v0, t0 } = state;
   const { k, c, m, X } = oldConfig;
   const { x, v } = newConfig.teleport

@@ -1,5 +1,6 @@
 import React from "react";
 import { TaskId } from "./raf-queue";
+import { currentTime } from "./time";
 
 export function useSpringInstance(target: number, config: Config): Instance {
   const ref = React.useRef<Instance | null>(null);
@@ -30,7 +31,7 @@ function getInitialState(target: number, { from, initialSpeed }: Config) {
   return {
     x0: from ?? target,
     v0: initialSpeed ?? 0,
-    t0: performance.now(),
+    t0: currentTime(),
     raf: null
   };
 }
