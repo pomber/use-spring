@@ -9,6 +9,10 @@ import { spring } from "./spring";
 import { queueAnimationFrame, unqueueAnimationFrame } from "./raf-queue";
 import { currentTime } from "./time";
 
+// https://github.com/facebook/react/issues/14927
+const useLayoutEffect =
+  typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
+
 export function useSpring(
   target: number,
   config: Config = {}
@@ -26,17 +30,17 @@ export function useSpring(
     : spring({ x0, v0, t0, t, k, c, m, X });
   const moving = isMoving(x, v, t, newConfig);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     Object.assign(oldConfig, newConfig);
   }, [newConfig.X, newConfig.k, newConfig.c, newConfig.m, newConfig.teleport]);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     state.x0 = x;
     state.v0 = v;
     state.t0 = t;
   }, [x, v, t]);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     const loop = (now: number) => {
       const { x0, v0, t0 } = state;
       const { k, c, m, X, decimals } = oldConfig;
@@ -56,7 +60,7 @@ export function useSpring(
     }
   });
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     return () => {
       if (state.raf != null) {
         unqueueAnimationFrame(state.raf);
